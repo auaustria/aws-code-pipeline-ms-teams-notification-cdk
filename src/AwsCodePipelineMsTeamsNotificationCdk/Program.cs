@@ -1,7 +1,4 @@
 ﻿using Amazon.CDK;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AwsCodePipelineMsTeamsNotificationCdk
 {
@@ -10,6 +7,9 @@ namespace AwsCodePipelineMsTeamsNotificationCdk
         public static void Main(string[] args)
         {
             var app = new App();
+            var account = System.Environment.GetEnvironmentVariable("CDK_DEFAULT_ACCOUNT");
+            var region = System.Environment.GetEnvironmentVariable("CDK_DEFAULT_REGION");
+
             new AwsCodePipelineMsTeamsNotificationCdkStack(app, "AwsCodePipelineMsTeamsNotificationCdkStack", new StackProps
             {
                 // If you don't specify 'env', this stack will be environment-agnostic.
@@ -26,15 +26,16 @@ namespace AwsCodePipelineMsTeamsNotificationCdk
                 }
                 */
 
-                // Uncomment the next block if you know exactly what Account and Region you
-                // want to deploy the stack to.
-                /*
                 Env = new Amazon.CDK.Environment
                 {
-                    Account = "123456789012",
-                    Region = "us-east-1",
-                }
-                */
+                    Account = account,
+                    Region = region,
+                },
+
+                StackName = $"codepipeline-notification-stack",
+                CrossRegionReferences = true,
+                Description = "Application Stack for AWS CodePipeline to MS Teams notification using CDK"
+
 
                 // For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
             });
