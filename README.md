@@ -1,6 +1,8 @@
 # MS Teams Notifications from AWS CodePipeline.
 
-This project is a quick uses the following:
+**A quick attempt to build a MS Teams notification stack
+
+This project is a uses the following:
 - Webhook Connector in Microsoft teams
 - AWS Lambda in python to format and send adaptive card message to the webhook
 - CDK code to generate AWS resources for the stack
