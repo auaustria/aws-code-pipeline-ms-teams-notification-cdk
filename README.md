@@ -1,14 +1,12 @@
-# Welcome to your CDK C# project!
+# MS Teams Notifications from AWS CodePipeline.
 
-This is a blank project for CDK development with C#.
+This project is a quick uses the following:
+- Webhook Connector in Microsoft teams
+- AWS Lambda in python to format and send adaptive card message to the webhook
+- CDK code to generate AWS resources for the stack
+- Reads a secret value in AWS Secrets manager for the Webhook URI. 
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-It uses the [.NET CLI](https://docs.microsoft.com/dotnet/articles/core/) to compile and execute your project.
-
-## Useful commands
-
-* `dotnet build src` compile this app
-* `cdk deploy`       deploy this stack to your default AWS account/region
-* `cdk diff`         compare deployed stack with current state
-* `cdk synth`        emits the synthesized CloudFormation template
+Get a webhook uri by Configuring the Webhook connector in a microsoft teams channel.
+To set the URI of the webhook, create a secret named ms-teams-webhook (or change secret_name variable in the python code for a custom secret name)
+At this point you can synth/deploy the cdk. It prefers to use an aws profile so use
+```cdk deploy --profile [your_profile_name]```
