@@ -5,6 +5,7 @@
 This project is a uses the following:
 - Webhook Connector in Microsoft teams
 - AWS Lambda in python to format and send adaptive card message to the webhook
+- Event Bridge to listen to CodePipeline events and targets the Lambda function
 - CDK code to generate AWS resources for the stack
 - Reads a secret value in AWS Secrets manager for the Webhook URI. 
 
