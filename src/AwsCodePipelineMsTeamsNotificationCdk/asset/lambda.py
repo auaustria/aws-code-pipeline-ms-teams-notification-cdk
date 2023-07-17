@@ -85,7 +85,7 @@ def handler(event, context):
         jsonData = json.dumps(msg).encode('utf-8')
         logger.info(f"Request Message: {jsonData}")
 
-        response = urllib.request.urlopen(urllib.request.Request(webhookUri, jsonData))
+        response = urllib.request.urlopen(urllib.request.Request(webhookUri, data=jsonData, headers={"Content-Type": "application/json"}))
         response.read()
 
     except HTTPError as err:
